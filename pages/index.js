@@ -1,5 +1,11 @@
+import Layout from "../components/Layout";
+
 export default class extends React.Component {
   render() {
-    return <h1>Hello world!!</h1>;
+    return (
+      <Layout title="Automatic News">
+        <h1>Hello world</h1>
+      </Layout>
+    );
   }
 }
