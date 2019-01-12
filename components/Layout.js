@@ -23,6 +23,10 @@ export default class Layout extends React.Component {
 
         {children}
 
+        <footer>
+          <span>By Dev&Coffee 2019</span>
+        </footer>
+
         <style jsx>{`
           header {
             color: #fff4e0;
@@ -35,6 +39,12 @@ export default class Layout extends React.Component {
             font-size: 20px;
             font-weight: bold;
             text-decoration: none;
+          }
+          footer {
+            color: #393e46;
+            background: #f8b500;
+            padding: 5px;
+            text-align: right;
           }
         `}</style>
         <style jsx global>{`
