@@ -19,6 +19,7 @@ export default class NewsItem extends React.Component {
 
         <style jsx>{`
           .news-item {
+            position: relative;
             display: block;
             border-radius: 3px;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
@@ -33,7 +34,7 @@ export default class NewsItem extends React.Component {
           .news-item a {
             display: block;
             margin-bottom: 0.5em;
-            color: #333;
+            color: #393e46;
             text-decoration: none;
           }
           .text-abstract {
@@ -44,8 +45,8 @@ export default class NewsItem extends React.Component {
             -webkit-box-orient: vertical;
           }
           .category {
-            position: relative;
-            top: 40px;
+            position: absolute;
+            top: 30px;
             background-color: #07080c;
             color: white;
             padding: 2px 5px;

@@ -29,8 +29,8 @@ export default class Layout extends React.Component {
 
         <style jsx>{`
           header {
-            color: #fff4e0;
-            background: #393e46;
+            color: white;
+            background: #005c85;
             padding: 15px;
             text-align: center;
           }
@@ -41,8 +41,8 @@ export default class Layout extends React.Component {
             text-decoration: none;
           }
           footer {
-            color: #393e46;
-            background: #f8b500;
+            color: #fff4e0;
+            background: #393e46;
             padding: 5px;
             text-align: right;
           }

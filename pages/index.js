@@ -129,7 +129,7 @@ export default class extends React.Component {
     return (
       <Layout title="Automatic News">
         <div className="banner" />
-        <NewsGrid news={news} />
+        <NewsGrid news={news} title="Last News" />
         <style jsx>{`
           .banner {
             width: 100%;
