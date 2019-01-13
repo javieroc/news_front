@@ -8,8 +8,12 @@ export default class NewsItem extends React.Component {
       <div className="news-item">
         <Link href={`/news?id=${_id}`} prefetch>
           <a>
+            <span className="category">{category}</span>
             <img src={image} alt="" />
-            <h2>{title}</h2>
+            <div className="content">
+              <h2>{title}</h2>
+              {content[0] && <p className="text-abstract">{content[0]}</p>}
+            </div>
           </a>
         </Link>
 
@@ -17,8 +21,11 @@ export default class NewsItem extends React.Component {
           .news-item {
             display: block;
             border-radius: 3px;
-            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
             margin-bottom: 0.5em;
+          }
+          .news-item .content {
+            padding: 1em;
           }
           .news-item img {
             width: 100%;
@@ -28,6 +35,34 @@ export default class NewsItem extends React.Component {
             margin-bottom: 0.5em;
             color: #333;
             text-decoration: none;
+          }
+          .text-abstract {
+            overflow: hidden;
+            display: -webkit-box;
+            text-align: justify;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+          }
+          .category {
+            position: relative;
+            top: 40px;
+            background-color: #07080c;
+            color: white;
+            padding: 2px 5px;
+          }
+          .category:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 100%;
+            height: 0;
+            width: 0;
+            border-width: 11px;
+            border-style: solid;
+            border-color: #07080c;
+            border-top-color: transparent;
+            border-bottom-color: transparent;
+            border-right-color: transparent;
           }
         `}</style>
       </div>
