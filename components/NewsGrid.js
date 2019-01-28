@@ -8,8 +8,8 @@ export default class NewsGrid extends React.Component {
       <div className="news-container">
         <h3>{title}</h3>
         <div className="news">
-          {news.map(item => (
-            <NewsItem {...item} key={item._id} />
+          {news.map((item, index) => (
+            <NewsItem {...item} key={index} />
           ))}
         </div>
 
