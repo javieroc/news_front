@@ -9,7 +9,7 @@ export default class NewsItem extends React.Component {
         <Link href={`/news?id=${_id}`} prefetch>
           <a>
             <span className="category">{category}</span>
-            <img src={image} alt="" />
+            <img src={image || "/static/default.jpg"} alt="" />
             <div className="content">
               <h2>{title}</h2>
               {content[0] && <p className="text-abstract">{content[0]}</p>}
