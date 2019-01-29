@@ -61,7 +61,7 @@ export default class extends React.Component {
 
   render() {
     const { statusCode } = this.props;
-    const { news } = this.state;
+    const { news, loading } = this.state;
 
     if (statusCode !== 200) {
       return <Error statusCode={statusCode} />;
@@ -71,6 +71,7 @@ export default class extends React.Component {
       <Layout title="Automatic News">
         <div className="banner" />
         <NewsGrid news={news} title="Last News" />
+        {loading && <h3 className="loading">Loading...</h3>}
         <style jsx>{`
           .banner {
             width: 100%;
@@ -79,6 +80,9 @@ export default class extends React.Component {
             background-position: 50% 50%;
             background-size: cover;
             background-color: #aaa;
+          }
+          .loading {
+            text-align: center;
           }
         `}</style>
       </Layout>
