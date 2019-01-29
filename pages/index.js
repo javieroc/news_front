@@ -2,6 +2,7 @@ import "isomorphic-fetch";
 import Error from "next/error";
 import Layout from "../components/Layout";
 import NewsGrid from "../components/NewsGrid";
+import { fetchNews } from "../services/api";
 
 export default class extends React.Component {
   constructor(props) {
@@ -17,8 +18,7 @@ export default class extends React.Component {
 
   static async getInitialProps({ res }) {
     try {
-      const req = await fetch("http://localhost:3000/news");
-      const { data, ...others } = await req.json();
+      const { data, ...others } = await fetchNews({ page: 1, per_page: 12 });
 
       return { news: data, ...others, statusCode: 200 };
     } catch (e) {
@@ -35,7 +35,7 @@ export default class extends React.Component {
   }
 
   handleScroll = () => {
-    const { loading, page, pages } = this.state;
+    const { loading, page, pages, per_page, news } = this.state;
 
     if (
       window.scrollY + window.innerHeight + 50 >= document.body.offsetHeight &&
@@ -43,18 +43,14 @@ export default class extends React.Component {
       page < pages
     ) {
       this.setState({ loading: true, page: page + 1 }, () => {
-        this.fetchNews();
+        this.updateNews();
       });
     }
   };
 
-  fetchNews = async () => {
+  updateNews = async () => {
     const { page, per_page, news } = this.state;
-    const req = await fetch(
-      `http://localhost:3000/news?page=${page}&per_page=${per_page}`
-    );
-
-    const { data, ...others } = await req.json();
+    const { data, ...others } = await fetchNews({ page, per_page });
 
     this.setState({
       loading: false,
