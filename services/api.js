@@ -12,3 +12,10 @@ export async function fetchNews(params) {
 
   return result;
 }
+
+export async function fetchNew(id) {
+  const resp = await fetch(`${API_URL}/news/${id}`);
+  const result = await resp.json();
+
+  return result;
+}

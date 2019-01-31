@@ -26,6 +26,7 @@ export default class extends React.Component {
       return { news: null, statusCode: 503 };
     }
   }
+
   componentDidMount() {
     window.addEventListener("scroll", this.handleScroll, false);
   }
