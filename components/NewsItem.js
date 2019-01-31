@@ -2,11 +2,18 @@ import Link from "next/link";
 
 export default class NewsItem extends React.Component {
   render() {
-    const { _id, title, content, image, category, date } = this.props;
+    const {
+      _id: { $oid },
+      title,
+      content,
+      image,
+      category,
+      date
+    } = this.props;
 
     return (
       <div className="news-item">
-        <Link href={`/news?id=${_id}`} prefetch>
+        <Link href={`/news?id=${$oid}`} prefetch>
           <a>
             <span className="category">{category}</span>
             <img src={image || "/static/default.jpg"} alt="" />
@@ -19,6 +26,7 @@ export default class NewsItem extends React.Component {
 
         <style jsx>{`
           .news-item {
+            background: white;
             position: relative;
             display: block;
             border-radius: 3px;
@@ -27,6 +35,9 @@ export default class NewsItem extends React.Component {
           }
           .news-item .content {
             padding: 1em;
+          }
+          .news-item h2 {
+            margin-top: 0;
           }
           .news-item img {
             width: 100%;

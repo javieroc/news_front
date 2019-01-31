@@ -15,7 +15,7 @@ export default class NewsGrid extends React.Component {
 
         <style jsx>{`
           .news-container {
-            padding: 50px 10%;
+            margin: 50px 10%;
           }
           .news {
             display: grid;

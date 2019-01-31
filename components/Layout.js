@@ -51,7 +51,7 @@ export default class Layout extends React.Component {
           body {
             margin: 0;
             font-family: system-ui;
-            background: white;
+            background: #eee;
           }
         `}</style>
       </div>
